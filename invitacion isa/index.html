@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invitación XV Rock · Valentina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700&family=Permanent+Marker&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Capa para chispas/estrellas al tocar la pantalla -->
+  <div id="sparkLayer" aria-hidden="true"></div>
+
+  <!-- Portada -->
+  <header class="hero">
+    <div class="stage-lights" aria-hidden="true">
+      <div class="beam beam--1"></div>
+      <div class="beam beam--2"></div>
+    </div>
+
+    <div class="zebra zebra--move" aria-hidden="true"></div>
+
+    <svg class="star star--1 interactive-star" aria-hidden="true" viewBox="0 0 100 100"><polygon points="50,5 61,38 96,38 68,58 79,92 50,71 21,92 32,58 4,38 39,38" fill="#1f4fe0"/></svg>
+    <svg class="star star--2 interactive-star" aria-hidden="true" viewBox="0 0 100 100"><polygon points="50,5 61,38 96,38 68,58 79,92 50,71 21,92 32,58 4,38 39,38" fill="#2e9bff"/></svg>
+    <svg class="star star--3 interactive-star" aria-hidden="true" viewBox="0 0 100 100"><polygon points="50,5 61,38 96,38 68,58 79,92 50,71 21,92 32,58 4,38 39,38" fill="#ffffff"/></svg>
+
+    <div class="wrap hero-content">
+      <p class="kicker">★ Una noche de rock ★</p>
+      <p class="big hero-pop">Mis XV</p>
+      <h1 class="big big--accent hero-pop" id="rockTitle" title="Toca para lanzar estrellas">Valentina</h1>
+      <p class="marker">Sube al escenario conmigo</p>
+      <div class="date-box" id="dateBox" title="Haz clic para hacer vibrar el escenario">
+        <p>Vie 11 dic 2026 · 7:00 p. m.</p>
+      </div>
+    </div>
+
+    <div class="zebra zebra--move-rev" aria-hidden="true"></div>
+  </header>
+
+  <!-- Cuenta regresiva -->
+  <section class="countdown reveal">
+    <div class="wrap">
+      <div class="timer-grid" id="timerGrid" aria-live="polite">
+        <div class="timer-box">
+          <span class="timer-val" id="cd-dias">00</span>
+          <span class="timer-lbl">Días</span>
+        </div>
+        <div class="timer-box">
+          <span class="timer-val" id="cd-horas">00</span>
+          <span class="timer-lbl">Horas</span>
+        </div>
+        <div class="timer-box">
+          <span class="timer-val" id="cd-mins">00</span>
+          <span class="timer-lbl">Min</span>
+        </div>
+        <div class="timer-box timer-box--pulse">
+          <span class="timer-val" id="cd-segs">00</span>
+          <span class="timer-lbl">Seg</span>
+        </div>
+      </div>
+      <p class="countdown-sub" id="countdownSub">para que empiece el show</p>
+    </div>
+  </section>
+
+  <!-- Mensaje -->
+  <section class="message reveal">
+    <div class="wrap">
+      <p class="lead">Quince años se cumplen una sola vez, y quiero celebrarlos con música fuerte y con la gente que me acompaña desde siempre. <span class="highlight">Tú tienes pase VIP.</span></p>
+      <p class="parents">Con la bendición de mis padres<br><strong>[Nombre de mamá]</strong> y <strong>[Nombre de papá]</strong></p>
+    </div>
+  </section>
+
+  <!-- Entrada VIP Interactiva -->
+  <section class="ticket-section reveal">
+    <div class="wrap">
+      <h2 class="title">Tu entrada</h2>
+      <div class="ticket-wrapper">
+        <div class="ticket" id="vipTicket">
+          <div class="ticket-glare" aria-hidden="true"></div>
+          <div class="vip-stamp" id="vipStamp" aria-hidden="true">ACCESO VIP</div>
+
+          <div class="ticket-head">
+            <p>★ Pase VIP</p>
+            <p id="ticketStatus">Admite una persona</p>
+          </div>
+
+          <div class="ticket-body">
+            <div class="row">
+              <p class="label">Fecha</p>
+              <p class="value">Viernes 11 de diciembre de 2026</p>
+            </div>
+            <div class="row">
+              <p class="label">Puertas</p>
+              <p class="value">7:00 p. m.</p>
+            </div>
+            <div class="row">
+              <p class="label">Lugar</p>
+              <p class="value">[Nombre del salón]<small>[Dirección y ciudad]</small></p>
+            </div>
+
+            <div class="perforation-wrap" aria-hidden="true">
+              <span class="notch notch--l"></span>
+              <div class="perforation"></div>
+              <span class="notch notch--r"></span>
+            </div>
+
+            <div class="ticket-stub" id="ticketStub">
+              <div class="row">
+                <p class="label">Dress code</p>
+                <p class="value">Rockero<small>Negro con detalles en azul. Botas y chaquetas son bienvenidas.</small></p>
+              </div>
+              <div class="barcode" aria-hidden="true"></div>
+              <button type="button" class="tear-btn" id="tearBtn">✂ Cortar y activar pase VIP</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Setlist con Ecualizador -->
+  <section class="setlist reveal">
+    <div class="wrap">
+      <h2 class="title">Setlist de la noche</h2>
+      <p class="setlist-hint">Toca una canción para encender el escenario</p>
+
+      <div class="track" tabindex="0">
+        <p class="num">01</p>
+        <p class="song">Soundcheck: llegada y bienvenida<small>7:00 p. m.</small></p>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="track" tabindex="0">
+        <p class="num">02</p>
+        <p class="song">Entrada de la estrella<small>8:00 p. m.</small></p>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="track" tabindex="0">
+        <p class="num">03</p>
+        <p class="song">Vals de honor<small>8:45 p. m.</small></p>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="track" tabindex="0">
+        <p class="num">04</p>
+        <p class="song">Cena backstage<small>9:15 p. m.</small></p>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="track" tabindex="0">
+        <p class="num">05</p>
+        <p class="song">Gran final: baile y encore<small>10:30 p. m.</small></p>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Confirmación -->
+  <section class="rsvp reveal">
+    <div class="zebra zebra--move" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="title">Confirma tu pase</h2>
+      <p class="text">Avísame antes del 30 de noviembre para reservar tu lugar. Escribe tus datos y confirma directo:</p>
+
+      <div class="rsvp-form">
+        <input type="text" id="guestName" class="rsvp-input" placeholder="Tu nombre y apellido" aria-label="Tu nombre">
+        <input type="text" id="guestNote" class="rsvp-input" placeholder="¿Alguna restricción alimentaria? (Opcional)" aria-label="Restricción alimentaria">
+      </div>
+
+      <!-- Cambia el número en data-phone (sin el +) -->
+      <a class="btn btn--glow" id="waBtn" data-phone="59178685140" href="https://wa.me/59178685140" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+      <p class="phone">[78685140]</p>
+      <p class="signoff">Nos vemos en el show, Valentina</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      // 1. CONTADOR EN VIVO HASTA EL 11 DE DICIEMBRE DE 2026 (19:00 hrs)
+      var evento = new Date(2026, 11, 11, 19, 0, 0).getTime();
+
+      var elDias = document.getElementById('cd-dias');
+      var elHoras = document.getElementById('cd-horas');
+      var elMins = document.getElementById('cd-mins');
+      var elSegs = document.getElementById('cd-segs');
+      var elSub = document.getElementById('countdownSub');
+
+      function pad(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function animarCambio(el, nuevoValor) {
+        if (el.textContent !== nuevoValor) {
+          el.textContent = nuevoValor;
+          el.classList.remove('num-tick');
+          void el.offsetWidth;
+          el.classList.add('num-tick');
+        }
+      }
+
+      function actualizarContador() {
+        var ahora = Date.now();
+        var diff = evento - ahora;
+
+        if (diff <= 0) {
+          elDias.textContent = '00';
+          elHoras.textContent = '00';
+          elMins.textContent = '00';
+          elSegs.textContent = '00';
+          elSub.textContent = '★ ¡EL SHOW HA COMENZADO! ★';
+          return;
+        }
+
+        var dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        var mins = Math.floor((diff / (1000 * 60)) % 60);
+        var segs = Math.floor((diff / 1000) % 60);
+
+        animarCambio(elDias, pad(dias));
+        animarCambio(elHoras, pad(horas));
+        animarCambio(elMins, pad(mins));
+        animarCambio(elSegs, pad(segs));
+      }
+
+      actualizarContador();
+      setInterval(actualizarContador, 1000);
+
+      // 2. LLUVIA DE ESTRELLAS AL TOCAR ELEMENTOS DE LA PORTADA
+      var sparkLayer = document.getElementById('sparkLayer');
+      function lanzarEstrellas(x, y) {
+        var simbolos = ['★', '✦', '⚡', '🎸'];
+        var colores = ['#2e9bff', '#ffffff', '#1f4fe0', '#7cc4ff'];
+
+        for (var i = 0; i < 12; i++) {
+          var spark = document.createElement('span');
+          spark.className = 'spark';
+          spark.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+          spark.style.left = x + 'px';
+          spark.style.top = y + 'px';
+          spark.style.color = colores[Math.floor(Math.random() * colores.length)];
+
+          var angle = (Math.PI * 2 * i) / 12 + (Math.random() * 0.4);
+          var dist = 50 + Math.random() * 80;
+          spark.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+          spark.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+          spark.style.setProperty('--rot', (Math.random() * 360 - 180) + 'deg');
+
+          sparkLayer.appendChild(spark);
+          setTimeout(function (el) { el.remove(); }, 850, spark);
+        }
+      }
+
+      document.getElementById('rockTitle').addEventListener('click', function (e) {
+        lanzarEstrellas(e.clientX, e.clientY);
+      });
+
+      document.querySelectorAll('.interactive-star').forEach(function (star) {
+        star.addEventListener('click', function (e) {
+          star.classList.remove('star-burst');
+          void star.offsetWidth;
+          star.classList.add('star-burst');
+          lanzarEstrellas(e.clientX, e.clientY);
+        });
+      });
+
+      var dateBox = document.getElementById('dateBox');
+      dateBox.addEventListener('click', function (e) {
+        dateBox.classList.remove('rock-shake');
+        void dateBox.offsetWidth;
+        dateBox.classList.add('rock-shake');
+        lanzarEstrellas(e.clientX, e.clientY);
+      });
+
+      // 3. EFECTO 3D HOLOGRÁFICO Y CORTE DE ENTRADA VIP
+      var ticket = document.getElementById('vipTicket');
+      var glare = ticket.querySelector('.ticket-glare');
+
+      ticket.addEventListener('mousemove', function (e) {
+        var rect = ticket.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+
+        var rotateX = ((y - centerY) / centerY) * -6;
+        var rotateY = ((x - centerX) / centerX) * 6;
+
+        ticket.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.02)';
+        glare.style.opacity = '1';
+        glare.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(46,155,255,0.28), transparent 65%)';
+      });
+
+      ticket.addEventListener('mouseleave', function () {
+        ticket.style.transform = '';
+        glare.style.opacity = '0';
+      });
+
+      var tearBtn = document.getElementById('tearBtn');
+      var ticketStub = document.getElementById('ticketStub');
+      var ticketStatus = document.getElementById('ticketStatus');
+      var vipStamp = document.getElementById('vipStamp');
+
+      tearBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var cortado = ticketStub.classList.toggle('torn');
+        vipStamp.classList.toggle('stamped', cortado);
+
+        if (cortado) {
+          tearBtn.textContent = '★ Pase VIP activado';
+          ticketStatus.textContent = '¡Entrada validada!';
+          lanzarEstrellas(e.clientX, e.clientY);
+        } else {
+          tearBtn.textContent = '✂ Cortar y activar pase VIP';
+          ticketStatus.textContent = 'Admite una persona';
+        }
+      });
+
+      // 4. SETLIST CON ECUALIZADOR EN VIVO
+      var tracks = document.querySelectorAll('.track');
+      tracks.forEach(function (track) {
+        track.addEventListener('click', function () {
+          var estabaActivo = track.classList.contains('active');
+          tracks.forEach(function (t) { t.classList.remove('active'); });
+          if (!estabaActivo) {
+            track.classList.add('active');
+          }
+        });
+      });
+
+      // 5. ANIMACIÓN AL HACER SCROLL (REVEAL)
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.14 });
+
+      document.querySelectorAll('.reveal').forEach(function (sec) {
+        observer.observe(sec);
+      });
+
+      // 6. MENSAJE DINÁMICO DE WHATSAPP
+      var waBtn = document.getElementById('waBtn');
+      var guestName = document.getElementById('guestName');
+      var guestNote = document.getElementById('guestNote');
+
+      function actualizarEnlaceWA() {
+        var phone = waBtn.getAttribute('data-phone');
+        var nombre = guestName.value.trim();
+        var nota = guestNote.value.trim();
+
+        var mensaje = '¡Hola Valentina! Confirmo mi pase VIP para tus XV el 11 de diciembre.';
+        if (nombre) {
+          mensaje = '¡Hola Valentina! Soy ' + nombre + ' y confirmo mi pase VIP para tus XV el 11 de diciembre.';
+        }
+        if (nota) {
+          mensaje += ' Nota alimenticia: ' + nota + '.';
+        }
+
+        waBtn.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(mensaje);
+      }
+
+      guestName.addEventListener('input', actualizarEnlaceWA);
+      guestNote.addEventListener('input', actualizarEnlaceWA);
+      actualizarEnlaceWA();
+    })();
+  </script>
+</body>
+</html>
